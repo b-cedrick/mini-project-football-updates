@@ -1,0 +1,27 @@
+<div class="team">
+  Selected Team :
+  <img [src]="selectedTeam.logo" />
+  <span class="team__name">{{ selectedTeam.name }}</span>
+</div>
+<div class="container" *ngIf="gameResults && gameResults.length > 0">
+  <div class="container__line" *ngFor="let item of gameResults">
+    <div class="container__line__img cell first">
+      <img [src]="item.teams.home.logo" />
+    </div>
+    <div class="container__line__team-name cell">
+      {{ item.teams.home.name }}
+    </div>
+    <div class="container__line__team-goal cell">{{ item.goals.home }}</div>
+    <div class="container__line__separator cell">-</div>
+    <div class="container__line__img cell">
+      <img [src]="item.teams.away.logo" />
+    </div>
+    <div class="container__line__team-name cell">
+      {{ item.teams.away.name }}
+    </div>
+    <div class="container__line__team-goal cell last">
+      {{ item.goals.away }}
+    </div>
+  </div>
+</div>
+<button [routerLink]="'/standigns/' + topLeagueKey" class="btn">Back</button>

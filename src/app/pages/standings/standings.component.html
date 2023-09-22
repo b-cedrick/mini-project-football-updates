@@ -1,0 +1,56 @@
+<div class="league">
+  League :
+  <ng-container *ngIf="league">
+    <img [src]="league['logo']" />
+    <span class="league__name">{{ league["name"] }}</span>
+  </ng-container>
+  <ng-container *ngIf="!league">
+    <span class="league__name">No league selected</span>
+  </ng-container>
+</div>
+<table class="table" *ngIf="league && standings">
+  <thead>
+    <tr>
+      <th class="th"></th>
+      <th class="th"></th>
+      <th class="th">Name</th>
+      <th class="th">Games</th>
+      <th class="th">W</th>
+      <th class="th">L</th>
+      <th class="th">D</th>
+      <th class="th">Goal Difference</th>
+      <th class="th">Points</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="tr" *ngFor="let item of standings; let index = index">
+      <td class="td">{{ index + 1 }}</td>
+      <td class="td">
+        <img [src]="item.team.logo" />
+      </td>
+      <td class="td">
+        <a
+          [routerLink]="
+            '/team-results/' +
+            item.team.id +
+            '/' +
+            league.id +
+            '/' +
+            currentSeason +
+            '/' +
+            leagueKey
+          "
+          routerLinkActive="isActive"
+          [state]="{ team: item.team }"
+          >{{ item.team.name }}</a
+        >
+      </td>
+      <td class="td">{{ item.all.played }}</td>
+      <td class="td">{{ item.all.win }}</td>
+      <td class="td">{{ item.all.lose }}</td>
+      <td class="td">{{ item.all.draw }}</td>
+      <td class="td">{{ item.goalsDiff }}</td>
+      <td class="td">{{ item.points }}</td>
+    </tr>
+  </tbody>
+</table>
