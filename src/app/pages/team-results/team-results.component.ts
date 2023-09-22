@@ -1,11 +1,11 @@
 import { Component, Input, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { TeamService } from 'src/app/services/team/team.service';
-import { GameResult } from 'src/app/models/interfaces/game-results';
-import { CustomUnsubscriber } from 'src/app/shared/utils/custom-unsubscriber/custom-unsubscriber';
 import { takeUntil } from 'rxjs';
-import { GameResultParams } from 'src/app/models/interfaces/params';
+import { GameResult } from '../../models/interfaces/game-results';
+import { GameResultParams } from '../../models/interfaces/params';
+import { TeamService } from '../../services/team/team.service';
+import { CustomUnsubscriber } from '../../shared/utils/custom-unsubscriber/custom-unsubscriber';
 
 @Component({
   selector: 'app-team-results',

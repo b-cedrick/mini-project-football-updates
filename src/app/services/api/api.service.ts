@@ -5,8 +5,8 @@ import {
   HttpParams,
 } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
-import { APP_CONFIG } from 'src/app/core/config/environement.config';
 import { catchError, tap, throwError } from 'rxjs';
+import { APP_CONFIG } from '../../core/config/environement.config';
 
 @Injectable({
   providedIn: 'root',

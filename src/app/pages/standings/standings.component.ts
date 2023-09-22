@@ -1,13 +1,13 @@
 import { Component, Input, inject } from '@angular/core';
 import { CommonModule, NgFor } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { TOP_LEAGUE } from 'src/app/constants/top-league';
-import { League } from 'src/app/models/interfaces/league';
-import { Standings } from 'src/app/models/interfaces/standings';
-import { StandingService } from 'src/app/services/standing/standing.service';
-import { CustomUnsubscriber } from 'src/app/shared/utils/custom-unsubscriber/custom-unsubscriber';
 import { takeUntil } from 'rxjs/operators';
-import { StandingParams } from 'src/app/models/interfaces/params';
+import { TOP_LEAGUE } from '../../constants/top-league';
+import { League } from '../../models/interfaces/league';
+import { StandingParams } from '../../models/interfaces/params';
+import { Standings } from '../../models/interfaces/standings';
+import { StandingService } from '../../services/standing/standing.service';
+import { CustomUnsubscriber } from '../../shared/utils/custom-unsubscriber/custom-unsubscriber';
 
 @Component({
   selector: 'app-standings',

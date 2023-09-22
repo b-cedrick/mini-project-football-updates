@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { ApiService } from '../api/api.service';
-import { Observable, map, pipe, tap } from 'rxjs';
-import { Standings } from 'src/app/models/interfaces/standings';
+import { Observable, map } from 'rxjs';
 import { Cacheable, LocalStorageStrategy } from 'ts-cacheable';
 import {
-  CacheCountEnum,
   CacheMaxAgeEnum,
-} from 'src/app/models/enums/cache-config.enum';
-import { StandingParams } from 'src/app/models/interfaces/params';
+  CacheCountEnum,
+} from '../../models/enums/cache-config.enum';
+import { StandingParams } from '../../models/interfaces/params';
+import { Standings } from '../../models/interfaces/standings';
+import { ApiService } from '../api/api.service';
 
 @Injectable({
   providedIn: 'root',

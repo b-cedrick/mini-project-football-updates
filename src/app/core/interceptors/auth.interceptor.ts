@@ -1,4 +1,3 @@
-import { Injectable } from '@angular/core';
 import { HttpRequest, HttpEvent, HttpHandlerFn } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { APP_CONFIG } from '../config/environement.config';
