@@ -8,7 +8,8 @@
     <span class="league__name">No league selected</span>
   </ng-container>
 </div>
-<table class="table" *ngIf="league && standings">
+<app-loading *ngIf="isFetching"></app-loading>
+<table class="table" *ngIf="league && standings && !isFetching">
   <thead>
     <tr>
       <th class="th"></th>

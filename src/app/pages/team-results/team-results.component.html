@@ -3,7 +3,11 @@
   <img [src]="selectedTeam.logo" />
   <span class="team__name">{{ selectedTeam.name }}</span>
 </div>
-<div class="container" *ngIf="gameResults && gameResults.length > 0">
+<app-loading *ngIf="isFetching"></app-loading>
+<div
+  class="container"
+  *ngIf="gameResults && gameResults.length > 0 && !isFetching"
+>
   <div class="container__line" *ngFor="let item of gameResults">
     <div class="container__line__img cell first">
       <img [src]="item.teams.home.logo" />

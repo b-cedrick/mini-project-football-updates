@@ -8,11 +8,12 @@ import { StandingParams } from '../../models/interfaces/params';
 import { Standings } from '../../models/interfaces/standings';
 import { StandingService } from '../../services/standing/standing.service';
 import { CustomUnsubscriber } from '../../shared/utils/custom-unsubscriber/custom-unsubscriber';
+import { LoadingComponent } from '../../shared/components/loading/loading.component';
 
 @Component({
   selector: 'app-standings',
   standalone: true,
-  imports: [CommonModule, RouterModule, NgFor],
+  imports: [CommonModule, RouterModule, NgFor, LoadingComponent],
   templateUrl: './standings.component.html',
   styleUrls: ['./standings.component.scss'],
 })
@@ -34,6 +35,7 @@ export class StandingsComponent extends CustomUnsubscriber {
   public leagueKey!: string;
   public standings!: Standings[];
   public currentSeason = new Date().getFullYear();
+  public isFetching = false;
 
   constructor() {
     super();
@@ -48,15 +50,18 @@ export class StandingsComponent extends CustomUnsubscriber {
   }
 
   getStandings(params: StandingParams) {
+    this.isFetching = true;
     this.standingService
       .getStandigns(params)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe({
         next: (result) => {
           this.standings = result;
+          this.isFetching = false;
         },
         error: (err) => {
           console.log('Erreur: ', err);
+          this.isFetching = false;
           alert(err);
         },
       });
